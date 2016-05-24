@@ -1,0 +1,29 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: bento/centos-6.7
+
+suites:
+  - name: default
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 80}]
+        - ["forwarded_port", {guest: 7777, host: 7777}]
+        - ["forwarded_port", {guest: 7778, host: 7778}]
+        - ["forwarded_port", {guest: 7779, host: 7779}]
+      vm_hostname: server1.domain.com
+    driver_config:
+      hostname: server1
+    run_list:
+      - recipe[kloxo-mr::default]
+    attributes:

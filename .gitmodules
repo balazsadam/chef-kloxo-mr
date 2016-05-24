@@ -1,0 +1,6 @@
+[submodule "foodcritic-rules/etsy"]
+	path = foodcritic-rules/etsy
+	url = https://github.com/etsy/foodcritic-rules.git
+[submodule "foodcritic-rules/customink"]
+	path = foodcritic-rules/customink
+	url = https://github.com/customink-webops/foodcritic-rules.git
